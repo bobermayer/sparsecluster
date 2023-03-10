@@ -245,8 +245,6 @@ def linkage (X,
 
     gbbs_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'gbbs') 
 
-    sys.stderr.write('gbbs dir : '+gbbs_dir + '\n')
-
     if dist is None:
 
         if verbose:
@@ -263,7 +261,7 @@ def linkage (X,
                        n_backup=n_backup, 
                        metric=metric, 
                        metric_kwds=metric_kwds, 
-                       random_state=0, 
+                       random_state=random_state, 
                        n_trees=n_trees,
                        n_iters=n_iters,
                        max_candidates=max_candidates,
