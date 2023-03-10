@@ -241,9 +241,11 @@ def linkage (X,
     import tempfile
     import numpy as np
     import pandas as pd
-    from nndescent import NNDescent
+    from pynndescentSC import NNDescent
 
-    gbbs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)),'gbbs') 
+    gbbs_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'gbbs') 
+
+    sys.stderr.write('gbbs dir : '+gbbs_dir + '\n')
 
     if dist is None:
 

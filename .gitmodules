@@ -1,0 +1,3 @@
+[submodule "gbbs"]
+	path = gbbs
+	url = git@github.com:bobermayer/gbbs.git
