@@ -243,7 +243,7 @@ def linkage (X,
     import pandas as pd
     from pynndescentSC import NNDescent
 
-    gbbs_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'gbbs') 
+    # gbbs_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'gbbs') 
 
     if dist is None:
 
@@ -279,16 +279,16 @@ def linkage (X,
 
     if method in ['single', 'complete', 'average'] and use_pybindings:
 
-        sys.path.append(gbbs_dir)
-        sys.path.append(os.path.join(gbbs_dir, 'bazel-bin/pybindings'))
-        import gbbs
+        # sys.path.append(gbbs_dir)
+        # sys.path.append(os.path.join(gbbs_dir, 'bazel-bin/pybindings'))
+        from gbbs_lib import numpyFloatEdgeListToSymmetricWeightedGraph
 
         if verbose:
             print(_ts(), "running gbbs HierarchicalAgglomerativeClustering with {0} linkage".format(method))
 
         nz = dist.nonzero()
         m = np.vstack((nz[0],nz[1],dist.data)).T
-        G = gbbs.numpyFloatEdgeListToSymmetricWeightedGraph(np.ascontiguousarray(m))
+        G = numpyFloatEdgeListToSymmetricWeightedGraph(np.ascontiguousarray(m))
         L = G.HierarchicalAgglomerativeClustering(method,False)
         Z = _convert_gbbs_linkage(pd.DataFrame(L), max_dist=np.max(dist.data))
 
