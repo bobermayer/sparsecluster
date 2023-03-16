@@ -173,7 +173,7 @@ def linkage (X,
 
     method: string (optional, default='single')
         specify the the clustering scheme to determine the distance from a new node
-        to the other nodes.at the moment supported are "single", "complete" and "average".
+        to the other nodes.at the moment supported are "single", "complete" and "weighted".
 
     n_neighbors: int (optional, default=10)
         The number of neighbors to use in k-neighbor graph graph_data structure
@@ -277,7 +277,7 @@ def linkage (X,
 
         dist = _get_sparse_matrix_from_knn(knn_inds, knn_dists)
 
-    if method in ['single', 'complete', 'average'] and use_pybindings:
+    if method in ['single', 'complete', 'weighted'] and use_pybindings:
 
         # sys.path.append(gbbs_dir)
         # sys.path.append(os.path.join(gbbs_dir, 'bazel-bin/pybindings'))
