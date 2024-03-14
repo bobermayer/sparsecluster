@@ -10,7 +10,7 @@ and gbbs
 installation
 ------------
 
-clone this repo and load all associated submodules. installing python bindings for `gbbs` can be a bit tricky, below is a hacky workaround 
+clone this repo and load all associated submodules. installing python bindings for `gbbs` can be a bit tricky, below is a hacky workaround. This will probably be resolved in the separate [ParHAC](https://github.com/ParAlg/ParHAC) repo.
 
 .. code:: bash
 
