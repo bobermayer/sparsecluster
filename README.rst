@@ -10,15 +10,20 @@ and gbbs
 installation
 ------------
 
-clone this repo and load all associated submodules
+clone this repo and load all associated submodules. installing python bindings for `gbbs` can be a bit tricky, below is a hacky workaround 
 
 .. code:: bash
 
     git clone git@github.com:bobermayer/sparsecluster.git
-    cd sparsecluster/gbbs
+    cd sparsecluster
     git submodule update --init
+    cd gbbs
+    git submodule update --init
+    bazel build //...
+    bazel build //pybindings:gbbs_lib.so
     cd ..
     pip install .
+    cp gbbs/bazel-bin/pybindings/gbbs_lib.so /path/to/python/site-packages/gbbs_lib.cpython-??-x86_64-linux-gnu.so 
 
 -----
 usage
@@ -41,6 +46,7 @@ dependencies
 * scikit-learn >= 0.22
 * numba >= 0.51
 * bazel
+* libprotobuf
 
 all of which should be pip or conda installable. 
 
